@@ -16,6 +16,9 @@ class Api::UserController < ApplicationController
     end
   end
 
+  def get
+    render json: {:success => true , :temas => User.all }
+  end
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
