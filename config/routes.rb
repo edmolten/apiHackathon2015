@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  post 'api/users/new'
-  post 'api/sesions/create'
-  get 'api/sesions/test'
-  get 'api/sesions/test2'
+  post 'api/user/new'
+  post 'api/session/create'
+  get 'api/session/test'
+  get 'api/session/test2'
 end
