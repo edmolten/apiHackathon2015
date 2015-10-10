@@ -11,9 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151010004030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clases", force: true do |t|
+    t.string  "title"
+    t.boolean "isADomicilio"
+    t.boolean "isDesignadoPorTutor"
+    t.integer "price"
+    t.integer "user_id"
+    t.integer "tema_id"
+    t.text    "description"
+    t.text    "disponibilidad"
+    t.string  "nivel"
+    t.boolean "activa"
+    t.float   "lat"
+    t.float   "long"
+    t.text    "contacto"
+  end
+
+  create_table "temas", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "email"
+    t.string "name"
+    t.text   "password_digest"
+    t.text   "remember_digest"
+    t.float  "valoracion"
+    t.text   "about"
+  end
 
 end
