@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'api/session/test'
   get 'api/session/test2'
   get 'api/tema/get'
+  get 'api/clase/get'
 end

@@ -16,6 +16,14 @@ class Api::ClaseController < ApplicationController
     end
   end
 
+  def get
+    filtro = params.require(:filtros).permit(:tema_id,:nivel)
+    clases = Clase.where({:tema_id => filtro[:tema_id],:nivel => filtro[:nivel]})
+    render :status => :ok,
+           :json => { :success => true,
+                      :data => clases }
+  end
+
   def clase_params
     params.require(:clase).permit(:title, :isADomicilio, :isDesignadoPorTutor, :price, :user_id,:tema_id,:description,:disponibilidad,:nivel,:activa, :lat, :long,:contacto )
   end
