@@ -4,6 +4,7 @@ class Api::UserController < ApplicationController
 
   def new
     @new = User.new(user_params)
+    @new.valoracion = 0
     if @new.save
       render :status => :ok,
              :json => { :success => true,
