@@ -18,8 +18,9 @@ class Api::ClaseController < ApplicationController
 
   def get
     if params.permit(:user_id) != {}
-        clases = Clase.where({:user_id => params.permit(:user_id)})
-        render :status => :ok,
+       user = User.find(params[:user_id])
+       clases = user.clases
+       render :status => :ok,
              :json => { :success => true,
                         :data => clases }
     else
